@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SubKeyword</title>
+    <!--[if lt IE 9]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+    <script src="{{ url_for('static',filename='tagcanvas/tagcanvas.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        try {
+          TagCanvas.Start('myCanvas','tags',{
+            textFont: null,
+            textColour: null,
+            weight: true,
+            outlineMethod: 'size',
+            outlineColour: '#BDBDBD',
+            reverse: true,
+          });
+        } catch(e) {
+          // something went wrong, hide the canvas container
+          document.getElementById('myCanvasContainer').style.display = 'none';
+        }
+      };
+    </script>
+    <style> .centered { 
+                width: 400px; 
+                position: absolute; 
+                left: 50%; 
+                margin-left: -400px; 
+                margin-top : 50px;
+            }
+    </style>
+  </head>
+  <body>
+    <center>
+    <h1>SubKeyword</h1>
+    </center>
+    <div id="myCanvasContainer" class="centered">
+      <canvas width="800" height="400" id="myCanvas">
+        <p>Anything in here will be replaced on browsers that support the canvas element</p>
+      </canvas>
+    </div>
+    <div id="tags">
+      <ul>
+        <li><a href="#" style="color:#{{fontColor}}; font-size:{{wordFreq[0]}}pt">{{Word[0]}}</a></li>
+        <li><a href="#" style="color:#{{fontColor}}; font-size:{{wordFreq[1]}}pt">{{Word[1]}}</a></li>
+        <li><a href="#" style="color:#{{fontColor}}; font-size:{{wordFreq[2]}}pt">{{Word[2]}}</a></li>
+        <li><a href="#" style="color:#{{fontColor}}; font-size:{{wordFreq[3]}}pt">{{Word[3]}}</a></li>
+        <li><a href="#" style="color:#{{fontColor}}; font-size:{{wordFreq[4]}}pt">{{Word[4]}}</a></li>
+        <li><a href="#" style="color:#{{fontColor}}; font-size:{{wordFreq[5]}}pt">{{Word[5]}}</a></li>
+        <li><a href="#" style="color:#{{fontColor}}; font-size:{{wordFreq[6]}}pt">{{Word[6]}}</a></li>
+        <li><a href="#" style="color:#{{fontColor}}; font-size:{{wordFreq[7]}}pt">{{Word[7]}}</a></li>
+        <li><a href="#" style="color:#{{fontColor}}; font-size:{{wordFreq[8]}}pt">{{Word[8]}}</a></li>
+        <li><a href="#" style="color:#{{fontColor}}; font-size:{{wordFreq[9]}}pt">{{Word[9]}}</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Keyword</title>
+    <!--[if lt IE 9]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+    <script src="{{ url_for('static',filename='tagcanvas/tagcanvas.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+      window.onload = function() {
+        try {
+          TagCanvas.Start('myCanvas','tags',{
+            textFont: null,
+            textColour: null,
+            weight: true,
+            outlineMethod: 'size',
+            outlineColour: '#BDBDBD',
+            reverse: true,
+          });
+        } catch(e) {
+          // something went wrong, hide the canvas container
+          document.getElementById('myCanvasContainer').style.display = 'none';
+        }
+      };
+    </script>
+    <style> .centered { 
+                width: 400px; 
+                position: absolute; 
+                left: 50%; 
+                margin-left: -400px; 
+                margin-top : 50px;
+            }
+    </style>
+
+  </head>
+  <body>
+    <center>
+        <h2>Keyword</h2>
+    </center>
+    <div id="myCanvasContainer" class="centered">
+      <canvas width="800" height="400" id="myCanvas">
+        <p>'{{moviename}}'에 대한 Keyword</p>
+      </canvas>
+    </div>
+    <div id="tags">
+      <ul>
+        <li><a style="color:#DF4D4D; font-size: {{negFreq[0]}}pt" href="http://127.0.0.1:5000/secondcloud/{{negWord[0]}}/DF4D4D/{{moviename}}">{{negWord[0]}}</a></li>
+        <li><a style="color:#DF4D4D; font-size: {{negFreq[1]}}pt" href="http://127.0.0.1:5000/secondcloud/{{negWord[1]}}/DF4D4D/{{moviename}}">{{negWord[1]}}</a></li>
+        <li><a style="color:#DF4D4D; font-size: {{negFreq[2]}}pt" href="http://127.0.0.1:5000/secondcloud/{{negWord[2]}}/DF4D4D/{{moviename}}">{{negWord[2]}}</a></li>
+        <li><a style="color:#DF4D4D; font-size: {{negFreq[3]}}pt" href="http://127.0.0.1:5000/secondcloud/{{negWord[3]}}/DF4D4D/{{moviename}}">{{negWord[3]}}</a></li>
+        <li><a style="color:#DF4D4D; font-size: {{negFreq[4]}}pt" href="http://127.0.0.1:5000/secondcloud/{{negWord[4]}}/DF4D4D/{{moviename}}">{{negWord[4]}}</a></li>
+        <li><a style="color:#6799FF; font-size: {{posFreq[0]}}pt" href="http://127.0.0.1:5000/secondcloud/{{posWord[0]}}/6799FF/{{moviename}}">{{posWord[0]}}</a></li>
+        <li><a style="color:#6799FF; font-size: {{posFreq[1]}}pt" href="http://127.0.0.1:5000/secondcloud/{{posWord[1]}}/6799FF/{{moviename}}">{{posWord[1]}}</a></li>
+        <li><a style="color:#6799FF; font-size: {{posFreq[2]}}pt" href="http://127.0.0.1:5000/secondcloud/{{posWord[2]}}/6799FF/{{moviename}}">{{posWord[2]}}</a></li>
+        <li><a style="color:#6799FF; font-size: {{posFreq[3]}}pt" href="http://127.0.0.1:5000/secondcloud/{{posWord[3]}}/6799FF/{{moviename}}">{{posWord[3]}}</a></li>
+        <li><a style="color:#6799FF; font-size: {{posFreq[4]}}pt" href="http://127.0.0.1:5000/secondcloud/{{posWord[4]}}/6799FF/{{moviename}}">{{posWord[4]}}</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
